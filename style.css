@@ -1,0 +1,313 @@
+/* 設定變數與基本重置 */
+:root {
+  --primary-color: #778A50;      /* 主綠色 */
+  --bg-color: #EDF2C5;           /* 頁面背景淡綠色 */
+  --content-bg: #F7FBDA;         /* 內容區塊淺背景色 */
+  --content-text: #7D7D7D;       /* 文字顏色 */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Noto Sans', Arial, sans-serif;
+  background-color: var(--bg-color);  
+  color: var(--content-text);
+}
+
+/* 整體內容容器 */
+.container {
+  width: 100%;            
+  max-width: 1122px;       
+  margin: 0 auto;    
+}
+
+/* ================= 1. Header 區塊 ================= */
+/* Header 區塊排版 */
+#header {
+  width: 1122px;
+  height: 62px;
+  margin-top: 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.logo,
+#header h1 {
+  margin: 0;
+  padding: 0;
+  width: 253px;
+  height: 60px;
+  color: var(--primary-color); 
+  font-size: 44px;             
+  font-weight: 900;
+  font-family: Noto Sans, Arial, sans-serif;
+  line-height: 100%;
+  letter-spacing: 0;
+}
+
+#btn_group {
+  margin: 0;
+  height: 27px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* 社群按鈕容器 */
+.btn_facebook,
+.btn_instagram {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+/* 讓圖片完美填滿 24x24 區域 */
+.btn_facebook img,
+.btn_instagram img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 中間的垂直分隔線 line */
+#btn_group .line {
+  width: 1px;
+  height: 24px;
+  background-color: var(--primary-color);
+  display: inline-block;
+}
+
+/* 登入與註冊按鈕 */
+.btn_JOIN_box {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 27px;
+  width: 49px;
+  padding: 4px 8px;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+.btn_LOGIN_box {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 27px;
+  width: 62px;
+  padding: 4px 8px;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+
+/* ================= 2. Nav 導覽列 ================= */
+#nav {
+  background-color: var(--primary-color);
+  top: 106px;
+  margin-bottom: 16px;
+  width: 1120px;
+  height: 44px;
+  border-radius: 3px;
+}
+
+#nav ul {
+  display: flex;
+  list-style: none;
+}
+
+#nav li {
+  height: 100%;
+}
+
+#nav a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 24px;
+  color: var(--bg-color);
+  text-decoration: none;
+  font-size: 16px; /* Figma Head2 */
+  font-weight: 900;
+  font-family: Noto Sans, Arial, sans-serif;
+  line-height: 150%;
+  letter-spacing: 0;
+  margin-top: 10px;
+}
+
+#nav a:hover,
+#nav a.active {
+  background-color: var(--primary-color);
+}
+
+/* ================= 3. Body 主體區塊 ================= */
+/* 主區域包覆容器 */
+#body {
+  width: 100%;
+  max-width: 1122px;
+  min-width: 1120px;        /* 👈 關鍵：防止縮小視窗時容器整體被擠壓 */
+  margin: 0 auto;
+  top: 166px;
+  box-sizing: border-box;
+}
+
+/* 1. 主 Banner 大圖區 */
+#box_main_content {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 32px;      /* 大圖與下方卡片間留白 */
+}
+
+#box_main_content img,
+#img_main_pumpkin {
+  width: 100%;
+  height: 448px;
+  object-fit: cover;
+  display: block;
+  border-radius: 3px;       /* 保持微圓角 */
+}
+
+/* 2. 下方兩欄佈局容器 */
+.content-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 64px;                 /* Figma 指定兩區塊水平間距 64px */
+}
+
+/* 左右兩大卡片固定規格 */
+#box_vegetables,
+#box_contact {
+  flex: 0 0 528px;
+  width: 528px;              /* Figma 指定 Width: 528px */
+  display: flex;            /* 關鍵：啟用 Flexbox */
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* 標題綠色 Bar */
+#box_vegetables_title,
+#box_contact_title {
+  height: 44px;              /* Figma 指定 Height: 44px */
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 44px;
+  padding-left: 16px;
+  border-radius: 3px 3px 0 0;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+/* 3. 左側三張小圖區 */
+#img_other_group {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+#img_other_group img {
+  width: 165px;              /* 平分寬度 */
+  height: 141px;             /* 201px - 44px 標題 - 16px 間距 */
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.veg-card {
+  flex: 1;
+  background-color: #F7FBDA; /* 淡綠色內頁底色 */
+  border-radius: 3px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.veg-card img {
+  width: 100%;
+  height: 141px;
+  object-fit: cover;
+  display: block;
+  flex-shrink: 0;
+}
+
+.veg-card p {
+  flex: 1;
+  padding: 12px 10px;
+  font-size: 11px;
+  line-height: 1.45;
+  color: #7D7D7D;
+  margin: 0;
+}
+
+/* 4. 右側聯絡資訊內文區 */
+#box_contact_text {
+  flex: 1;
+  background-color: #F7FBDA; /* 淡綠色內頁背景 */
+  padding: 20px 16px;
+  min-height: 157px;             /* 201px - 44px 標題 */
+  font-size: 12px;
+  line-height: 1.5;
+  color: #7D7D7D;
+  border-radius: 0 0 3px 3px;
+  box-sizing: border-box;
+}
+
+#box_contact_text .intro-text {
+  margin-bottom: 20px;      
+}
+
+#box_contact_text .service-text {
+  margin-bottom: 12px;
+}
+
+#box_contact_text hr.divider {
+  border: none;
+  border-top: 1px solid #C2D1A8;
+  margin: 12px 0;
+}
+
+.contact-info {
+  margin: 4px 0 !important;
+  color: #7D7D7D;
+  font-size: 12px;
+  font-family: Noto Sans, Arial, sans-serif;
+}
+
+/* ================= 4. Footer 區塊 ================= */
+/* 頁尾區塊 */
+#footer {
+  width: 100%;
+  height: 60px;               
+  background-color: #778A50;  
+  margin-top: 117px;           
+  display: flex;
+  justify-content: center;
+  align-items: center;        
+}
+
+/* 頁尾文字 */
+#footer p {
+  margin: 0;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 12px;           
+  font-weight: 400;          
+  color: #EDF2C5;            
+}
